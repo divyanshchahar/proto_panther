@@ -1,8 +1,8 @@
-import FacebookIconComponent from "web/public/icons/FacebookIconComponent";
-import LinkedinIconComponent from "web/public/icons/LinkedInIconComponent";
-import XIconComponent from "web/public/icons/XIConComponent";
-import InstagramIconComponent from "web/public/icons/InstagramIconComponent";
-import YoutubeIconComponent from "web/public/icons/YoutubeIconComponent";
+import FacebookIconComponent from "../../../public/icons/FacebookIconComponent";
+import LinkedinIconComponent from "../../../public/icons/LinkedInIconComponent";
+import XIconComponent from "../../../public/icons/XIConComponent";
+import InstagramIconComponent from "../../../public/icons/InstagramIconComponent";
+import YoutubeIconComponent from "../../../public/icons/YoutubeIconComponent";
 
 import styles from "./FooterLayout.module.css"
 import Link from "next/link";
