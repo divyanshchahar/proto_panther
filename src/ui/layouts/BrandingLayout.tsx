@@ -3,7 +3,7 @@ import styles from "./BrandingLayout.module.css"
 
 export default function BrandingLayout() {
     return (
-        <div className={`${styles.container} colorSchemeBranding`}>
+        <div className={`${styles.container} colorScheme5`}>
             <div className={styles.innerContainer}>
                 <div className={styles.textContainer}>
                     <p className={`heading3`}>Start building today</p>
