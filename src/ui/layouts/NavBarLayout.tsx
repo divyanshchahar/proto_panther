@@ -1,15 +1,15 @@
 "use client"
 
-import "../../../../apps/global.css"
+// import "../../../../apps/global.css"
 import Link from 'next/link'
 
 import styles from "./NavBarLayout.module.css"
 import ButtonComponent from "../components/ButtonComponent";
 import {ReactNode} from "react";
-import HamburgerMenuIconComponent from "web/public/icons/HamburgerMenuIconComponent";
+import HamburgerMenuIconComponent from "../../../public/icons/HamburgerMenuIconComponent";
 import {Menubar} from "radix-ui";
 import {useRouter} from "next/navigation";
-import ProtoPantherLogo from "web/public/icons/ProtoPantherLogo";
+import ProtoPantherLogo from "../../../public/icons/ProtoPantherLogo";
 
 export type LinkContainerPropTypes = {
     links: {
