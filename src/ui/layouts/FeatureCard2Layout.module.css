@@ -1,0 +1,19 @@
+.container {
+    max-width: var(--max-width-xs);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--dimension-3);
+
+    text-align: center;
+
+    p {
+        color: var(--color-text);
+    }
+
+    svg {
+        width: var(--dimension-6);
+        height: var(--dimension-6);
+    }
+}
