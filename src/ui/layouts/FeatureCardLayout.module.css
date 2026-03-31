@@ -1,0 +1,19 @@
+.container {
+    max-width: var(--max-width-s);
+
+    padding: var(--dimension-5);
+
+    border: 1px solid var(--color-border);
+
+    border-radius: var(--radius-1);
+
+    background-color: var(--color-foreground);
+
+    .extraSpacing1 {
+        margin-bottom: var(--dimension-3);
+    }
+
+    .extraSpacing2 {
+        margin-bottom: var(--dimension-2);
+    }
+}
