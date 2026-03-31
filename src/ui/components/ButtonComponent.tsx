@@ -1,6 +1,6 @@
 import {ReactNode} from "react";
 import styles from "./ButtonComponent.module.css"
-import "../../../../apps/global.css"
+
 
 interface ButtonComponentProps {
     children: ReactNode;
