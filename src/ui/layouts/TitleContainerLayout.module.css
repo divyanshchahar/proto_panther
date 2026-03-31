@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--dimension-2);
+
+    width: 100%;
+    max-width: var(--max-width-l);
+    margin: auto;
+    text-align: center;
+
+    color: var(--color-text);
+
+}

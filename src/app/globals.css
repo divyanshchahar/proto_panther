@@ -1,49 +1,269 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html {
-  height: 100%;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+
+    /*##############*/
+    /*# PRIMITIVES #*/
+    /*##############*/
+
+    /*COLORS*/
+    --color-black-1: rgba(13, 5, 3, 1);
+    --color-black-2: rgba(41, 41, 41, 1);
+
+
+    --color-white-1: rgba(255, 255, 255, 1);
+    --color-white-2: rgba(255, 255, 255, 0.15);
+
+    --color-grey-1: rgba(218, 217, 217, 1);
+    --color-grey-2: rgba(242, 242, 242, 1);
+    --color-grey-3: rgba(219, 218, 217, 1);
+
+    --color-golden-1: rgba(241, 238, 204, 1);
+    --color-golden-2: rgba(248, 246, 229, 1);
+    --color-golden-3: rgba(178, 153, 112, 1);
+
+    /*DIMENSIONS*/
+    --dimension-1: 8px;
+    --dimension-2: 16px;
+    --dimension-3: 24px;
+    --dimension-4: 32px;
+    --dimension-5: 40px;
+    --dimension-6: 48px;
+    --dimension-7: 56px;
+    --dimension-8: 64px;
+    --dimension-9: 72px;
+    --dimension-10: 80px;
+    --dimension-11: 88px;
+    --dimension-12: 96px;
+    --dimension-13: 104px;
+    --dimension-14: 112px;
+    --dimension-15: 120px;
+    --dimension-16: 128px;
+    --dimension-17: 136px;
+    --dimension-18: 144px;
+    --dimension-19: 152px;
+    --dimension-20: 160px;
+
+    /*RADIUS*/
+    --radius-1: 8px;
+
+
+    /*TYPOGRAPHY*/
+    --font-size-h1: 3.585rem;
+    --font-size-h2: 2.986rem;
+    --font-size-h3: 2.488rem;
+    --font-size-h4: 2.074rem;
+    --font-size-h5: 1.728rem;
+    --font-size-h6: 1.44rem;
+    --font-size-xl: 1.125rem; /*=> remove from design system*/
+    --font-size-l: 1.2rem;
+    --font-size-r: 1rem; /* => rename to match design system8*/
+    --font-size-s: 0.83rem;
+
+    --font-weight-bold: 800;
+    --font-weight-normal: 400;
+    --font-weight-light: 100;
+
+    --line-height-normal: 1.5;
+    --line-height-heading: 1.1;
+
+    /*###########*/
+    /*# SPACING #*/
+    /*###########*/
+
+    --spacing-global: var(--dimension-3);
+    --spacing-section-l: var(--dimension-8);
+    --spacing-section-m: var(--dimension-6);
+    --spacing-section-s: var(--dimension-4);
+
+    @media screen and (min-width: 480px) {
+        * {
+            --spacing-global: var(--dimension-8);
+            --spacing-section-l: var(--dimension-14);
+            --spacing-section-m: var(--dimension-10);
+            --spacing-section-s: var(--dimension-6);
+        }
+    }
+
+    /*MAX WIDTH*/
+    --max-width-xxl: 1280px;
+    --max-width-xl: 1024px;
+    --max-width-l: 768px;
+    --max-widht-m: 560px;
+    --max-width-s: 480px;
+    --max-width-xs: 400px;
+    --max-width-xxs: 320px;
+
+
+    /*CONTAINER WIDTH*/
+    --container-width-l: 1280px;
+    --container-width-m: 1024px;
+    --container-width-s: 768px;
+
+    /*#####################*/
+    /*# UNIVERSAL STYLING #*/
+    /*#####################*/
+
+    font-size: var(--font-size-r);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-normal);
+    font-family: "Inter", sans-serif;
 }
+
+/*#######################*/
+/*# TYPOGRAPHIC EFFECTS #*/
+/*#######################*/
+
+.heading1 {
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-heading);
+}
+
+.heading2 {
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-heading);
+}
+
+.heading3 {
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-heading);
+}
+
+.heading4 {
+    font-size: var(--font-size-h4);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-heading);
+}
+
+.heading5 {
+    font-size: var(--font-size-h5);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-heading);
+}
+
+.heading6 {
+    font-size: var(--font-size-h5);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-heading);
+}
+
+/*BOLD*/
+
+.boldL {
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-bold);
+}
+
+.boldN {
+    font-size: var(--font-size-r);
+    font-weight: var(--font-weight-bold);
+}
+
+.boldS {
+    font-size: var(--font-size-s);
+    font-weight: var(--font-weight-bold);
+}
+
+/*REGULAR*/
+
+.normalL {
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-normal);
+
+}
+
+.normalN {
+    font-size: var(--font-size-r);
+    font-weight: var(--font-weight-normal);
+}
+
+.normalS {
+    font-size: var(--font-size-s);
+    font-weight: var(--font-weight-normal);
+}
+
+/*LIGHT*/
+
+.lightL {
+    font-size: var(--font-size-l);
+    font-weight: var(--font-weight-light);
+}
+
+.lightN {
+    font-size: var(--font-size-r);
+    font-weight: var(--font-weight-light);
+}
+
+.lightS {
+    font-size: var(--font-size-s);
+    font-weight: var(--font-weight-light);
+}
+
+
+/*#################*/
+/*# COLOR SCHEMES #*/
+/*#################*/
+
+.colorScheme1 {
+    --color-text: var(--color-black-1);
+    --color-background: var(--color-white-1);
+    --color-foreground: var(--color-grey-2);
+    --color-border: var(--color-grey-3);
+    --color-accent: var(--color-black-1);
+    --color-brand: var(--color-golden-3);
+}
+
+.colorScheme2 {
+    --color-text: var(--color-black-1);
+    --color-background: var(--color-grey-2);
+    --color-foreground: var(--color-white-1);
+    --color-border: var(--color-grey-3);
+    --color-accent: var(--color-black-1);
+    --color-brand: var(--color-golden-3);
+}
+
+.colorScheme3 {
+    --color-text: var(--color-white-1);
+    --color-background: var(--color-black-1);
+    --color-foreground: var(--color-grey-2);
+    --color-border: var(--color-grey-3);
+    --color-accent: var(--color-black-1);
+    --color-brand: var(--color-golden-3);
+}
+
+.colorScheme4 {
+    --color-text: var(--color-white-1);
+    --color-background: var(--color-black-1);
+    --color-foreground: var(--color-black-2);
+    --color-border: var(--color-white-2);
+    --color-accent: var(--color-white-1);
+    --color-brand: var(--color-golden-3);
+}
+
+.colorScheme5 {
+    --color-text: var(--color-black-1);
+    --color-background: var(--color-golden-2);
+    --color-foreground: var(--color-golden-1);
+    --color-border: var(--color-grey-3);
+    --color-accent: var(--color-black-1);
+    --color-brand: var(--color-golden-3);
+}
+
+/*##################*/
+/*# GLOBAL STYLING #*/
+/*##################*/
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: var(--color-text);
+    text-decoration: none;
+    cursor: pointer;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+button {
+    all: unset;
 }

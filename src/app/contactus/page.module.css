@@ -1,0 +1,82 @@
+.Container{
+    display: flex;
+    flex-direction: column;
+    gap: var(--dimension-5);
+
+    padding : var(--spacing-global) var(--spacing-section-l);
+
+    background-color: var(--color-background);
+    color: var(--color-text);
+
+    height: 100vh;
+}
+
+@media screen and (min-width: 480px) {
+    .Container{
+        flex-direction: row;
+    }
+}
+
+.TopContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dimension-4);
+
+    width: 100%;
+}
+
+.TextContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dimension-2);
+}
+
+.TextSubContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dimension-3);
+}
+
+.ContactDetailsContainer{
+    display: flex;
+    flex-direction: column;
+    gap: var(--dimension-2);
+}
+
+.ContactDetails{
+    display: flex;
+    flex-direction: row;
+    gap: var(--dimension-2);
+
+    svg{
+        height: var(--dimension-2);
+        width: auto;
+
+        fill: var(--color-text);
+    }
+}
+
+.BottomContainer {
+
+    width: 100%;
+
+    input, textarea {
+        all: unset;
+        padding: var(--dimension-1);
+        background-color: var(--color-foreground);
+
+        border-radius: var(--radius-1);
+
+        width: 100%;
+    }
+
+    button {
+        margin-top: var(--dimension-3);
+    }
+
+    label {
+        margin-top: var(--dimension-3);
+        margin-bottom: var(--dimension-1);
+        display: block;
+    }
+}

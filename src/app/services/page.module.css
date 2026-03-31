@@ -1,0 +1,185 @@
+.serviceSection {
+    padding: var(--spacing-global) var(--spacing-section-l);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--color-text);
+    background-color: var(--color-background);
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dimension-10);
+
+    max-width: var(--max-width-xxl);
+}
+
+.contentHolder {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dimension-4);
+
+    justify-content: center;
+    align-items: center;
+}
+
+.contentSubHolder {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dimension-4);
+}
+
+.textHolder {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dimension-2);
+}
+
+.textSubHolder {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dimension-3);
+}
+
+.cardHolder {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dimension-3);
+}
+
+.card {
+    p {
+        margin-top: var(--dimension-2);
+    }
+
+    svg {
+        height: var(--dimension-6);
+        width: var(--dimension-6);
+    }
+}
+
+.order1 {
+    order: 0;
+}
+
+.order2 {
+    order: 0;
+}
+
+.imageHolder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.serviceSectionImage {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    fill: var(--color-golden-3);
+}
+
+@media screen and (min-width: 480px) {
+    .serviceSection {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container {
+        flex-direction: row;
+        width: 50%;
+    }
+
+    .cardHolder {
+        flex-direction: row;
+    }
+
+    .imageHolder {
+        width: 50%;
+    }
+
+    .order1 {
+        order: 1;
+    }
+
+    .order2 {
+        order: 2;
+    }
+}
+
+
+.heroSection {
+    padding-left: var(--spacing-global);
+    padding-right: var(--spacing-global);
+    padding-top: var(--spacing-section-l);
+    padding-bottom: var(--spacing-section-l);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--dimension-6);
+
+
+    color: var(--color-text);
+    background-color: var(--color-background);
+
+    text-align: center;
+}
+
+.heroSectionTextContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dimension-2);
+
+    max-width: var(--max-width-xxl);
+}
+
+.heroSectionTextSubContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dimension-6);
+}
+
+.herSectionContentContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dimension-6);
+
+    max-width: var(--max-width-xxl);
+}
+
+.svgImage {
+    width: var(--dimension-10);
+    height: var(--dimension-10);
+
+    fill: var(--color-text);
+
+}
+
+@media screen and (min-width: 480px) {
+    .herSectionContentContainer {
+        gap: var(--dimension-6);
+
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+}
+
+@media screen and (min-width: 898px) {
+    .herSectionContentContainer {
+        gap: var(--dimension-6);
+
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+}
