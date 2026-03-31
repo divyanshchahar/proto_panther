@@ -1,0 +1,52 @@
+.svgImage {
+    width: var(--dimension-10);
+    height: var(--dimension-10);
+
+    fill: var(--color-text);
+
+}
+
+.heroSection {
+    padding: var(--spacing-section-l) var(--spacing-global);
+
+    background-color: var(--color-background);
+
+    display: flex;
+    flex-direction: column;
+
+    gap: var(--dimension-10);
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--dimension-2);
+
+    text-align: center;
+    width: 100%;
+}
+
+.textSubContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--dimension-3);
+
+    text-align: center;
+}
+
+.heroSectionCardContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--dimension-4);
+
+    justify-content: center;
+
+    div {
+        width: 100%;
+    }
+}
