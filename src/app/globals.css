@@ -105,7 +105,7 @@
     /*#####################*/
     /*# UNIVERSAL STYLING #*/
     /*#####################*/
-    
+
     font-size: var(--font-size-r);
     font-weight: var(--font-weight-normal);
     line-height: var(--line-height-normal);
@@ -156,17 +156,17 @@
 
 .boldL {
     font-size: var(--font-size-l);
-    font-weight: var(--font-weight-light);
+    font-weight: var(--font-weight-bold);
 }
 
 .boldN {
     font-size: var(--font-size-r);
-    font-weight: var(--font-weight-light);
+    font-weight: var(--font-weight-bold);
 }
 
 .boldS {
     font-size: var(--font-size-s);
-    font-weight: var(--font-weight-light);
+    font-weight: var(--font-weight-bold);
 }
 
 /*REGULAR*/
