@@ -1,0 +1,69 @@
+.container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    padding: var(--dimension-2) var(--spacing-global);
+
+    color: var(--color-text);
+    background-color: var(--color-background);
+
+    border-bottom: 1px solid var(--color-border);
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.linkContainer {
+    display: none;
+    align-items: center;
+    gap: var(--dimension-4);
+}
+
+.brand {
+    height: 24px;
+    width: auto;
+    fill: var(--color-golden-3);
+}
+
+@media screen and (min-width: 480px) {
+    .linkContainer {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+    }
+}
+
+.icons {
+    height: var(--dimension-3);
+    width: var(--dimension-3);
+
+    fill: var(--color-text);
+}
+
+
+.MenubarRoot {
+    background-color: var(--color-background);
+}
+
+@media screen and (min-width: 480px) {
+    .MenubarRoot {
+        display: none;
+    }
+}
+
+.MenubarContent {
+    background-color: var(--color-background);
+}
+
+.MenubarItem {
+    padding: var(--dimension-2);
+    min-width: 100vw;
+
+    color: var(--color-text);
+}
+
+
+/*TODO*/
+/*- remove specialized styling for link tags*/
