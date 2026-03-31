@@ -1,0 +1,44 @@
+.paddedSection {
+    padding: var(--spacing-section-l) var(--spacing-global);
+    background-color: var(--color-background);
+}
+
+.columnFlexContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--dimension-6);
+
+    width: 100%;
+    max-width: var(--max-width-xxl);
+    margin: auto;
+}
+
+@media screen and (min-width: 480px) {
+    .columnFlexContainer {
+        gap: var(--dimension-10);
+    }
+}
+
+.rowFlexContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--dimension-6);
+    justify-content: center;
+
+    width: 100%;
+}
+
+@media screen and (min-width: 480px) {
+    .rowFlexContainer {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (min-width: 976px) {
+    .rowFlexContainer {
+        flex-wrap: nowrap;
+    }
+}
