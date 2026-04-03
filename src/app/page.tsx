@@ -100,8 +100,7 @@ const HeroSection = () => {
                         dilution.
                     </p>
 
-
-                    <ButtonComponent version="cta">Book</ButtonComponent>
+                    <ButtonComponent version="cta">Book a Call</ButtonComponent>
 
                 </div>
             </div>
