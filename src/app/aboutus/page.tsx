@@ -1,7 +1,6 @@
+"use client"
+
 import HeroSection1Layout, {HeroSectionPropTypes} from "../../ui/layouts/HeroSection1Layout"
-
-// import "../../../global.css"
-
 import styles from "./page.module.css"
 import BrandingLayout from "../../ui/layouts/BrandingLayout";
 import FeatureCardLayout from "../../ui/layouts/FeatureCardLayout";
