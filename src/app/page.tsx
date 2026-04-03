@@ -1,3 +1,5 @@
+"use client"
+
 import AccordionPrimitive, {AccordionPrimitivePropTypes} from "@/ui/primitives/AccordionPrimitive";
 import ChevronDownIconComponent from "../../public/icons/ChevronDownIcon";
 import PrototypeIconComponent from "../../public/icons/PrototypeIconComponent";
@@ -9,6 +11,8 @@ import ReviewCardLayout, {ReviewCardLayoutPropsTypes} from "@/ui/layouts/ReviewC
 import TitleContainerLayout from "@/ui/layouts/TitleContainerLayout";
 import HeroSection1Layout from "@/ui/layouts/HeroSection1Layout";
 import BrandingLayout from "@/ui/layouts/BrandingLayout";
+import {useRouter} from "next/navigation";
+import navUrls from "@/consts/navigation";
 
 
 const accordionProps: AccordionPrimitivePropTypes = {
@@ -84,6 +88,8 @@ const heroSectionProps = {
 }
 
 const HeroSection = () => {
+    const router = useRouter();
+
     return (
         <div className={`${styles.paddedContainer} colorScheme5`}>
 
@@ -100,7 +106,13 @@ const HeroSection = () => {
                         dilution.
                     </p>
 
-                    <ButtonComponent version="cta">Book a Call</ButtonComponent>
+                    <ButtonComponent version="cta"
+                                     clickHandler={() => {
+                                         router.push(
+                                             navUrls.external.landingDiscoveryCall
+                                         )
+                                     }}>Book
+                        a Call</ButtonComponent>
 
                 </div>
             </div>
@@ -178,6 +190,7 @@ const StatsSection = () => {
 }
 
 const QuestionsSection = () => {
+    const router = useRouter()
     return (
         <div className={`colorScheme1 ${styles.paddedContainer}`}>
 
@@ -194,7 +207,9 @@ const QuestionsSection = () => {
 
                     <p className={`lightL`}>Book a call and ask us anything</p>
 
-                    <ButtonComponent version="plain" className={`colorScheme1`}>Contact</ButtonComponent>
+                    <ButtonComponent version="plain" className={`colorScheme1`} clickHandler={() => {
+                        router.push(navUrls.internal.contactUs)
+                    }}>Contact</ButtonComponent>
                 </div>
             </div>
         </div>
