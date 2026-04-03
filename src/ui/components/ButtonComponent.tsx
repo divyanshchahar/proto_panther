@@ -6,17 +6,22 @@ interface ButtonComponentProps {
     children: ReactNode;
     className?: string;
     version: "cta" | "plain"
+    clickHandler: () => void
 }
 
-export default function ButtonComponent({children, className, version}: ButtonComponentProps): ReactNode {
+export default function ButtonComponent({children, className, version, clickHandler}: ButtonComponentProps): ReactNode {
     switch (version) {
         case "cta":
             return (
-                <button className={`${className} ${styles.basic} ${styles.cta} regularN`}> {children} </button>
+                <button className={`${className} ${styles.basic} ${styles.cta} regularN`} onClick={
+                    clickHandler
+                }> {children} </button>
             )
         case "plain":
             return (
-                <button className={`${className} ${styles.basic} ${styles.plain} boldN`}> {children} </button>
+                <button
+                    className={`${className} ${styles.basic} ${styles.plain} boldN`}
+                    onClick={clickHandler}> {children} </button>
             )
     }
 }
