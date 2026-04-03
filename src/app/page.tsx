@@ -207,7 +207,7 @@ export default function Home() {
         <>
             <HeroSection/>
 
-            <ReviewSection/>
+            {/*<ReviewSection/>*/}
 
             <StatsSection/>
 
@@ -222,3 +222,7 @@ export default function Home() {
         </>
     )
 }
+
+
+// TODO
+// 1. Add back reviews section
