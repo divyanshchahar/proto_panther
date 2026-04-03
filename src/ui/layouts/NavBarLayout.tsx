@@ -10,6 +10,7 @@ import HamburgerMenuIconComponent from "../../../public/icons/HamburgerMenuIconC
 import {Menubar} from "radix-ui";
 import {useRouter} from "next/navigation";
 import ProtoPantherLogo from "../../../public/icons/ProtoPantherLogo";
+import navUrls from "@/consts/navigation";
 
 export type LinkContainerPropTypes = {
     links: {
@@ -74,6 +75,8 @@ function NavigationMenu() {
 
 export default function NavBarLayout() {
 
+    const router = useRouter()
+
     return (
         <div className={`${styles.container} colorScheme4`}>
 
@@ -87,7 +90,9 @@ export default function NavBarLayout() {
                 <LinkContainer links={NavigationLinks}/>
             </div>
 
-            <ButtonComponent version="cta">Book a Call</ButtonComponent>
+            <ButtonComponent version="cta" clickHandler={() => {
+                router.push(navUrls.external.landingDiscoveryCall)
+            }}>Book a Call</ButtonComponent>
         </div>
     )
 }

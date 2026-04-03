@@ -1,10 +1,16 @@
+"use client"
+
 import styles from "./page.module.css"
 import ButtonComponent from "@/ui/components/ButtonComponent";
 import EnvelopeIConComponent from "../../../public/icons/EnvelopeIConComponent";
 import PhoneIconComponent from "../../../public/icons/PhoneIconComponent";
+import {useRouter} from "next/navigation";
+import navUrls from "@/consts/navigation";
 
 
 export default function Page() {
+    const router = useRouter();
+
     return (
         <div className={`colorScheme4 ${styles.Container}`}>
             <div className={styles.TopContainer}>
@@ -50,7 +56,9 @@ export default function Page() {
                     <textarea/>
                     <br/>
 
-                    <ButtonComponent version="cta">Schedule</ButtonComponent>
+                    <ButtonComponent version="cta" clickHandler={() => {
+                        router.push(navUrls.external.landingDiscoveryCall)
+                    }}>Schedule</ButtonComponent>
 
 
                 </form>
