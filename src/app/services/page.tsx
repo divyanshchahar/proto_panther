@@ -1,3 +1,5 @@
+"use client"
+
 import {ReactNode} from "react";
 // import "../../../global.css"
 import HeroSection1Layout, {HeroSectionPropTypes} from "@/ui/layouts/HeroSection1Layout"
