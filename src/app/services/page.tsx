@@ -12,6 +12,8 @@ import InteractionIconComponent from "../../../public/icons/InteractionIconCompo
 import FeedbackIconComponent from "../../../public/icons/FeedbackIconComponent";
 import LayersIconComponent from "../../../public/icons/LayersIconComponent";
 import CogsIconComponent from "../../../public/icons/CogsIconComponent";
+import IdeaIconComponent from "../../../public/icons/IdeaIconComponent";
+import InvestmentIconComponent from "../../../public/icons/InvestmentIconComponent";
 
 interface AttributeCardLayoutPropTypes {
     imgObj: ReactNode,
@@ -144,16 +146,16 @@ export default function Services() {
                             headingText={"Interactive designs that deliver clarity"}
                             descriptionText={"A high fidelity prototype feels real. You interact with it like a finished product, revealing what works and what doesn't before you build the full thing."}
                             attributeItems={[{
-                                imgObj: <FocusIconComponent/>,
+                                imgObj: <InteractionIconComponent/>,
                                 headingText: "Clickable flows",
                                 descriptionText: "Fully functional interfaces that behave like production software."
                             }, {
-                                imgObj: <InteractionIconComponent/>,
+                                imgObj: <FeedbackIconComponent/>,
                                 headingText: "Market Feedback",
                                 descriptionText: "Test demand with real users and refine before development begins."
                             }]}
                             sectionId={"prototype"}
-                            mainImage={<FeedbackIconComponent styling={styles.serviceSectionImage}/>}
+                            mainImage={<IdeaIconComponent styling={styles.serviceSectionImage}/>}
             />
 
             <ServiceSection tagLineText={"Launch"} headingText={"Products that work from day one"}
@@ -166,7 +168,7 @@ export default function Services() {
                             }, {
                                 headingText: "Capital ready",
                                 descriptionText: "Finished enough to impress investors, focused enough to ship fast.",
-                                imgObj: <InteractionIconComponent/>
+                                imgObj: <InvestmentIconComponent/>
                             }]} isImageOnRight={true}
                             sectionId={"MVP"}
                             mainImage={<CogsIconComponent styling={styles.serviceSectionImage}/>}
