@@ -60,12 +60,15 @@
 
     width: 100%;
 
-    input, textarea {
-        all: unset;
+    input, textarea, select {
+        /*all: unset;*/
         padding: var(--dimension-1);
         background-color: var(--color-foreground);
 
+        border: none;
         border-radius: var(--radius-1);
+
+        color: var(--color-text);
 
         width: 100%;
     }
