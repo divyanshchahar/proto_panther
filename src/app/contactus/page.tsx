@@ -5,7 +5,7 @@ import ButtonComponent from "@/ui/components/ButtonComponent";
 import EnvelopeIConComponent from "../../../public/icons/EnvelopeIConComponent";
 import PhoneIconComponent from "../../../public/icons/PhoneIconComponent";
 import {useRouter} from "next/navigation";
-import navUrls from "@/consts/navigation";
+import {SubmitHandler, useForm} from "react-hook-form"
 
 const listOfCountries = ["Afghanistan",
     "Albania",
@@ -226,9 +226,27 @@ const listOfCountries = ["Afghanistan",
     "Zimbabwe"
 ]
 
+interface formInputsTypes {
+    fullName: string,
+    email: string,
+    country: string,
+    phoneNumber: string,
+    service: string,
+}
+
 
 export default function Page() {
     const router = useRouter();
+
+
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: {errors},
+    } = useForm<formInputsTypes>()
+
+    const onSubmit: SubmitHandler<formInputsTypes> = (data) => console.log(data)
 
     return (
         <div className={`colorScheme4 ${styles.Container}`}>
@@ -259,24 +277,26 @@ export default function Page() {
             </div>
 
             <div className={styles.BottomContainer}>
-                <form>
+                <form onSubmit={handleSubmit(onSubmit)}>
                     <label className={`regularN`}>Full Name *</label>
 
-                    <input type="text"/>
+                    <input type="text"{...register("fullName", {required: "Please enter Full Name"})} />
+
+                    <p className={`normalS`}>{errors.fullName?.message}</p>
 
 
                     <label className={`regularN`}>Email</label>
 
-                    <input type="email"/>
+                    <input type="email" {...register("email")} />
 
 
                     <label className={`regularN`}>Country *</label>
 
-                    <select>
+                    <select defaultValue={"India"} {...register("country")} >
                         {
                             listOfCountries.map((country) => {
                                 return <option value={country} key={country}
-                                               selected={country === "India"}>{country}</option>
+                                >{country}</option>
                             })
                         }
                     </select>
@@ -284,12 +304,15 @@ export default function Page() {
 
                     <label className={`regularN`}>Phone Number *</label>
 
-                    <input type="tel"/>
+                    <input type="tel" {...register("phoneNumber", {required: "Please enter a phone number"})} />
+
+                    <p className={`normalS`}>{errors.phoneNumber?.message}</p>
 
 
                     <label className={`regularN`}>What do you need ?*</label>
 
-                    <select>
+                    <select
+                        defaultValue={"Landing Page"} {...register("service", {required: "Please select a service"})} >
                         <option value="Landing Page">Landing Page</option>
 
                         <option value="Website">Website</option>
@@ -297,11 +320,14 @@ export default function Page() {
                         <option value="MVP">MVP</option>
                     </select>
 
+                    <p className={`normalS`}>{errors.service?.message}</p>
+
                     <br/>
 
 
                     <ButtonComponent version="plain" clickHandler={() => {
-                        router.push(navUrls.external.landingDiscoveryCall)
+                        // router.push(navUrls.external.landingDiscoveryCall)
+                        handleSubmit(onSubmit);
                     }}>Schedule</ButtonComponent>
 
                 </form>
