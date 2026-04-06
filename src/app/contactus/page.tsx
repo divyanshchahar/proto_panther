@@ -276,23 +276,26 @@ export default function Page() {
                 </div>
             </div>
 
-            <div className={styles.BottomContainer}>
+            <div className={`${styles.formContainer} colorScheme4 normalN`}>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <label className={`regularN`}>Full Name *</label>
+                    {/*first name*/}
+                    <label className={`lightS`}>Full Name *</label>
 
-                    <input type="text"{...register("fullName", {required: "Please enter Full Name"})} />
+                    <input type="text"{...register("fullName", {required: "Please enter Full Name"})}
+                           className={`${errors.fullName && "errorFocused"}`}
+                    />
 
-                    <p className={`normalS`}>{errors.fullName?.message}</p>
+                    <p className={`${styles.error} boldS`}>{errors.fullName?.message}</p>
 
-
-                    <label className={`regularN`}>Email</label>
+                    {/*email*/}
+                    <label className={`lightS`}>Email</label>
 
                     <input type="email" {...register("email")} />
 
+                    {/*country*/}
+                    <label className={`lightS`}>Country *</label>
 
-                    <label className={`regularN`}>Country *</label>
-
-                    <select defaultValue={"India"} {...register("country")} >
+                    <select defaultValue={"India"} {...register("country")}>
                         {
                             listOfCountries.map((country) => {
                                 return <option value={country} key={country}
@@ -302,14 +305,17 @@ export default function Page() {
                     </select>
 
 
-                    <label className={`regularN`}>Phone Number *</label>
+                    {/*phone number*/}
+                    <label className={`lightS`}>Phone Number *</label>
 
-                    <input type="tel" {...register("phoneNumber", {required: "Please enter a phone number"})} />
+                    <input type="tel" {...register("phoneNumber", {required: "Please enter a phone number"})}
+                           className={`${errors.phoneNumber && "errorFocused"}`}/>
 
-                    <p className={`normalS`}>{errors.phoneNumber?.message}</p>
+                    <p className={` ${styles.error} boldS`}>{errors.phoneNumber?.message}</p>
 
 
-                    <label className={`regularN`}>What do you need ?*</label>
+                    {/*service required*/}
+                    <label className={`lightS`}>What do you need ?*</label>
 
                     <select
                         defaultValue={"Landing Page"} {...register("service", {required: "Please select a service"})} >
@@ -320,11 +326,9 @@ export default function Page() {
                         <option value="MVP">MVP</option>
                     </select>
 
-                    <p className={`normalS`}>{errors.service?.message}</p>
+                    <p className={`${styles.error} boldS`}>{errors.service?.message}</p>
 
-                    <br/>
-
-
+                    {/*submit button*/}
                     <ButtonComponent version="plain" clickHandler={() => {
                         handleSubmit(onSubmit);
                     }}>Schedule</ButtonComponent>
