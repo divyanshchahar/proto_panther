@@ -326,7 +326,6 @@ export default function Page() {
 
 
                     <ButtonComponent version="plain" clickHandler={() => {
-                        // router.push(navUrls.external.landingDiscoveryCall)
                         handleSubmit(onSubmit);
                     }}>Schedule</ButtonComponent>
 
