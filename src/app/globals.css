@@ -24,6 +24,10 @@
     --color-golden-2: rgba(248, 246, 229, 1);
     --color-golden-3: rgba(178, 153, 112, 1);
 
+    --color-red-1: rgba(255, 0, 0, 1);
+
+    --color-green-1: rgba(0, 255, 0, 1);
+
     /*DIMENSIONS*/
     --dimension-1: 8px;
     --dimension-2: 16px;
@@ -216,6 +220,8 @@
     --color-border: var(--color-grey-3);
     --color-accent: var(--color-black-1);
     --color-brand: var(--color-golden-3);
+    --color-error: var(--color-red-1);
+    --color-acceptance: var(--color-green-1);
 }
 
 .colorScheme2 {
@@ -225,6 +231,8 @@
     --color-border: var(--color-grey-3);
     --color-accent: var(--color-black-1);
     --color-brand: var(--color-golden-3);
+    --color-error: var(--color-red-1);
+    --color-acceptance: var(--color-green-1);
 }
 
 .colorScheme3 {
@@ -234,6 +242,8 @@
     --color-border: var(--color-grey-3);
     --color-accent: var(--color-black-1);
     --color-brand: var(--color-golden-3);
+    --color-error: var(--color-red-1);
+    --color-acceptance: var(--color-green-1);
 }
 
 .colorScheme4 {
@@ -243,6 +253,8 @@
     --color-border: var(--color-white-2);
     --color-accent: var(--color-white-1);
     --color-brand: var(--color-golden-3);
+    --color-error: var(--color-red-1);
+    --color-acceptance: var(--color-green-1);
 }
 
 .colorScheme5 {
@@ -252,6 +264,8 @@
     --color-border: var(--color-grey-3);
     --color-accent: var(--color-black-1);
     --color-brand: var(--color-golden-3);
+    --color-error: var(--color-red-1);
+    --color-acceptance: var(--color-green-1);
 }
 
 /*##################*/
