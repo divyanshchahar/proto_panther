@@ -1,9 +1,9 @@
-.Container{
+.Container {
     display: flex;
     flex-direction: column;
     gap: var(--dimension-5);
 
-    padding : var(--spacing-global) var(--spacing-section-l);
+    padding: var(--spacing-global) var(--spacing-section-l);
 
     background-color: var(--color-background);
     color: var(--color-text);
@@ -12,7 +12,7 @@
 }
 
 @media screen and (min-width: 480px) {
-    .Container{
+    .Container {
         flex-direction: row;
     }
 }
@@ -37,18 +37,18 @@
     gap: var(--dimension-3);
 }
 
-.ContactDetailsContainer{
+.ContactDetailsContainer {
     display: flex;
     flex-direction: column;
     gap: var(--dimension-2);
 }
 
-.ContactDetails{
+.ContactDetails {
     display: flex;
     flex-direction: row;
     gap: var(--dimension-2);
 
-    svg{
+    svg {
         height: var(--dimension-2);
         width: auto;
 
@@ -56,12 +56,11 @@
     }
 }
 
-.BottomContainer {
+.formContainer {
 
     width: 100%;
 
     input, textarea, select {
-        /*all: unset;*/
         padding: var(--dimension-1);
         background-color: var(--color-foreground);
 
@@ -73,6 +72,7 @@
         width: 100%;
     }
 
+
     button {
         margin-top: var(--dimension-3);
     }
@@ -82,4 +82,14 @@
         margin-bottom: var(--dimension-1);
         display: block;
     }
+}
+
+.error {
+
+    color: var(--color-error);
+    margin-top: var(--dimension-1);
+}
+
+.errorFocused {
+    outline: 1px solid var(--color-red-1);
 }
