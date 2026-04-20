@@ -9,6 +9,10 @@
 }
 
 
+.basic:disabled {
+    filter: brightness(50%);
+}
+
 .cta {
 
     background-color: var(--color-golden-3);
