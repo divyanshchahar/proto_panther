@@ -5,6 +5,8 @@ import EnvelopeIConComponent from "../../../public/icons/EnvelopeIConComponent";
 import PhoneIconComponent from "../../../public/icons/PhoneIconComponent";
 import {SubmitHandler, useForm} from "react-hook-form"
 import ButtonComponent from "@/ui/components/ButtonComponent";
+import {useState} from "react";
+import AlertDialogPrimitive, {AlertDialogPrimitivePropTypes} from "@/ui/primitives/AlertDialougePrimitive";
 
 
 interface formInputsTypes {
@@ -18,6 +20,24 @@ interface formInputsTypes {
 
 export default function Page() {
 
+    const [isDisabled, setIsDisabled] = useState(false);
+    const [isAlertDialogOpen, setIsAlertDialogOpen] = useState(false);
+
+    const toggleSucessDialoge = () => {
+        setIsAlertDialogOpen(!isAlertDialogOpen);
+    }
+
+    const [alertDialogeProps, setAlertDialogeProps] = useState<AlertDialogPrimitivePropTypes>({
+        isOpen: isAlertDialogOpen,
+        alertType: "success",
+        colorScheme: "colorScheme2",
+        bodyText: "",
+        cancelButtonText: "",
+        headingText: "",
+        toggleDialog: toggleSucessDialoge
+    })
+
+
     const {
         register,
         handleSubmit,
@@ -26,6 +46,8 @@ export default function Page() {
 
     const onSubmit: SubmitHandler<formInputsTypes> = async (data) => {
         try {
+            setIsDisabled(true);
+
             const res = await fetch("/api/lead",
                 {
                     method: "POST",
@@ -34,8 +56,37 @@ export default function Page() {
                     },
                     body: JSON.stringify(data)
                 });
+
+            if (res.status === 200) {
+
+                setAlertDialogeProps({
+                    ...alertDialogeProps,
+                    alertType: "success",
+                    bodyText: "We have recieved your message. Our customer sucess team will get back to you shortly",
+                    headingText: "Query recieved",
+                    cancelButtonText: "OK",
+                })
+
+                toggleSucessDialoge()
+            } else {
+
+                setAlertDialogeProps({
+                    ...alertDialogeProps,
+                    alertType: "danger",
+                    bodyText: "We were unable to recieve your message. Please try again.",
+                    headingText: "Unable to register your query",
+                    cancelButtonText: "Try Again"
+                })
+
+                toggleSucessDialoge()
+            }
+
+            setIsDisabled(false);
+
         } catch (e) {
             console.log(e);
+            setIsDisabled(false);
+
         }
     }
 
@@ -117,12 +168,17 @@ export default function Page() {
                     <p className={`${styles.error} boldS`}>{errors.Service_Required?.message}</p>
 
                     {/*submit button*/}
-                    <ButtonComponent version="plain" clickHandler={() => {
+                    <ButtonComponent isDisabled={isDisabled} version="plain" clickHandler={() => {
                         handleSubmit(onSubmit);
                     }}>Schedule</ButtonComponent>
 
                 </form>
             </div>
+
+            <AlertDialogPrimitive isOpen={isAlertDialogOpen} alertType={alertDialogeProps.alertType}
+                                  headingText={alertDialogeProps.headingText} toggleDialog={toggleSucessDialoge}
+                                  cancelButtonText={alertDialogeProps.cancelButtonText}
+                                  bodyText={alertDialogeProps.bodyText} colorScheme={alertDialogeProps.colorScheme}/>
         </div>
     )
 }
