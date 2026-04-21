@@ -1,252 +1,43 @@
 "use client"
 
 import styles from "./page.module.css"
-import ButtonComponent from "@/ui/components/ButtonComponent";
 import EnvelopeIConComponent from "../../../public/icons/EnvelopeIConComponent";
 import PhoneIconComponent from "../../../public/icons/PhoneIconComponent";
-import {useRouter} from "next/navigation";
 import {SubmitHandler, useForm} from "react-hook-form"
+import ButtonComponent from "@/ui/components/ButtonComponent";
 
-const listOfCountries = ["Afghanistan",
-    "Albania",
-    "Algeria",
-    "American Samoa",
-    "Andorra",
-    "Angola",
-    "Antigua and Barbuda",
-    "Argentina",
-    "Armenia",
-    "Aruba",
-    "Australia",
-    "Austria",
-    "Azerbaijan",
-    "Bahamas",
-    "Bahrain",
-    "Bangladesh",
-    "Barbados",
-    "Belarus",
-    "Belgium",
-    "Belize",
-    "Benin",
-    "Bermuda",
-    "Bhutan",
-    "Bolivia",
-    "Bosnia and Herzegovina",
-    "Botswana",
-    "Brazil",
-    "British Virgin Islands",
-    "Brunei Darussalam",
-    "Bulgaria",
-    "Burkina Faso",
-    "Burundi",
-    "Cabo Verde",
-    "Cambodia",
-    "Cameroon",
-    "Canada",
-    "Cayman Islands",
-    "Central African Republic",
-    "Chad",
-    "Channel Islands",
-    "Chile",
-    "China",
-    "Colombia",
-    "Comoros",
-    "Democratic Republic of Congo",
-    "Republic of Congo",
-    "Costa Rica",
-    "Republic of Cote d'Ivoire",
-    "Croatia",
-    "Cuba",
-    "Curacao",
-    "Cyprus",
-    "Czechia",
-    "Denmark",
-    "Djibouti",
-    "Dominica",
-    "Dominican Republic",
-    "Ecuador",
-    "Arab Republic of Egypt",
-    "El Salvador",
-    "Equatorial Guinea",
-    "Eritrea",
-    "Estonia",
-    "Eswatini",
-    "Ethiopia",
-    "Faroe Islands",
-    "Fiji",
-    "Finland",
-    "France",
-    "French Polynesia",
-    "Gabon",
-    "Gambia",
-    "Georgia",
-    "Germany",
-    "Ghana",
-    "Gibraltar",
-    "Greece",
-    "Greenland",
-    "Grenada",
-    "Guam",
-    "Guatemala",
-    "Guinea",
-    "Guinea-Bissau",
-    "Guyana",
-    "Haiti",
-    "Honduras",
-    "Hong Kong Special Administrative Region of the People's Republic of China ",
-    "Hungary",
-    "Iceland",
-    "India",
-    "Indonesia",
-    "Islamic Republic of Iran",
-    "Iraq",
-    "Ireland",
-    "Isle of Man",
-    "Israel",
-    "Italy",
-    "Jamaica",
-    "Japan",
-    "Jordan",
-    "Kazakhstan",
-    "Kenya",
-    "Kiribati",
-    "Democratic Republic of Korea",
-    "Republic of Korea",
-    "Kosovo",
-    "Kuwait",
-    "Kyrgyz Republic",
-    "Lao PDR",
-    "Latvia",
-    "Lebanon",
-    "Lesotho",
-    "Liberia",
-    "Libya",
-    "Liechtenstein",
-    "Lithuania",
-    "Luxembourg",
-    "Macao Special Administrative Region of the People's Republic of China",
-    "Madagascar",
-    "Malawi",
-    "Malaysia",
-    "Maldives",
-    "Mali",
-    "Malta",
-    "Marshall Islands",
-    "Mauritania",
-    "Mauritius",
-    "Mexico",
-    "Federal State of Micronesia",
-    "Moldova",
-    "Monaco",
-    "Mongolia",
-    "Montenegro",
-    "Morocco",
-    "Mozambique",
-    "Myanmar",
-    "Namibia",
-    "Nauru",
-    "Nepal",
-    "Netherlands",
-    "New Caledonia",
-    "New Zealand",
-    "Nicaragua",
-    "Niger",
-    "Nigeria",
-    "North Macedonia",
-    "Northern Mariana Islands",
-    "Norway",
-    "Oman",
-    "Pakistan",
-    "Palau",
-    "Panama",
-    "Papua New Guinea",
-    "Paraguay",
-    "Peru",
-    "Philippines",
-    "Poland",
-    "Portugal",
-    "Puerto Rico (US)",
-    "Qatatar",
-    "Romania",
-    "Russian Federation",
-    "Rwanda",
-    "Samoa",
-    "San Marino",
-    "Sao Tome and Principe",
-    "Saudi Arabia",
-    "Senegal",
-    "Serbia",
-    "Seychelles",
-    "Sierra Leone",
-    "Singapore",
-    "Sint Maarten (Dutch part)",
-    "Slovak Republic",
-    "Slovenia",
-    "Solomon Islands",
-    "Federal Republic of Somalia",
-    "South Africa",
-    "South Sudan",
-    "Spain",
-    "Sri Lanka",
-    "St.Kitts and Nevis",
-    "St.Lucia",
-    "St.Martin(French part)",
-    "St.Vincent and the Grenadines",
-    "Sudan",
-    "Suriname",
-    "Sweden",
-    "Switzerland",
-    "Syrian Arab Republic",
-    "Tajikistan",
-    "Tanzania",
-    "Thailand",
-    "Timor-Leste",
-    "Togo",
-    "Tonga",
-    "Trinidad and Tobago",
-    "Tunisia",
-    "Turkiye",
-    "Turkmenistan",
-    "Turks and Caicos Islands",
-    "Tuvalu",
-    "Uganda",
-    "Ukraine",
-    "United Arab Emirates",
-    "United Kingdom",
-    "United States",
-    "Uruguay",
-    "Uzbekistan",
-    "Vanuatu",
-    "Bolivian Republic of Venezuella",
-    "VietNam",
-    "Virgin Islands (U.S.)",
-    "West Bank and Gaza",
-    "Republic of Yemen",
-    "Zambia",
-    "Zimbabwe"
-]
 
 interface formInputsTypes {
-    fullName: string,
-    email: string,
-    country: string,
-    phoneNumber: string,
-    service: string,
+    First_Name: string,
+    Last_Name: string,
+    Email: string,
+    Phone: string,
+    Service_Required: string,
 }
 
 
 export default function Page() {
-    const router = useRouter();
-
 
     const {
         register,
         handleSubmit,
-        watch,
         formState: {errors},
     } = useForm<formInputsTypes>()
 
-    const onSubmit: SubmitHandler<formInputsTypes> = (data) => console.log(data)
+    const onSubmit: SubmitHandler<formInputsTypes> = async (data) => {
+        try {
+            const res = await fetch("/api/lead",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(data)
+                });
+        } catch (e) {
+            console.log(e);
+        }
+    }
 
     return (
         <div className={`colorScheme4 ${styles.Container}`}>
@@ -278,47 +69,44 @@ export default function Page() {
 
             <div className={`${styles.formContainer} colorScheme4 normalN`}>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    {/*first name*/}
-                    <label className={`lightS`}>Full Name *</label>
 
-                    <input type="text"{...register("fullName", {required: "Please enter Full Name"})}
-                           className={`${errors.fullName && "errorFocused"}`}
+                    {/*first name*/}
+                    <label className={`lightS`}>First Name *</label>
+
+                    <input type="text"{...register("First_Name", {required: "Please enter First Name"})}
+                           className={`${errors.First_Name && "errorFocused"}`}
                     />
 
-                    <p className={`${styles.error} boldS`}>{errors.fullName?.message}</p>
+                    <p className={`${styles.error} boldS`}>{errors.First_Name?.message}</p>
+
+                    {/*Last name*/}
+                    <label className={`lightS`}>Last Name *</label>
+
+                    <input type="text"{...register("Last_Name", {required: "Please enter Last Name"})}
+                           className={`${errors.Last_Name && "errorFocused"}`}
+                    />
+
+                    <p className={`${styles.error} boldS`}>{errors.Last_Name?.message}</p>
 
                     {/*email*/}
                     <label className={`lightS`}>Email</label>
 
-                    <input type="email" {...register("email")} />
-
-                    {/*country*/}
-                    <label className={`lightS`}>Country *</label>
-
-                    <select defaultValue={"India"} {...register("country")}>
-                        {
-                            listOfCountries.map((country) => {
-                                return <option value={country} key={country}
-                                >{country}</option>
-                            })
-                        }
-                    </select>
-
+                    <input type="email" {...register("Email")} />
 
                     {/*phone number*/}
                     <label className={`lightS`}>Phone Number *</label>
 
-                    <input type="tel" {...register("phoneNumber", {required: "Please enter a phone number"})}
-                           className={`${errors.phoneNumber && "errorFocused"}`}/>
+                    <input type="tel" {...register("Phone", {required: "Please enter a phone number"})}
+                           className={`${errors.Phone && "errorFocused"}`}/>
 
-                    <p className={` ${styles.error} boldS`}>{errors.phoneNumber?.message}</p>
+                    <p className={` ${styles.error} boldS`}>{errors.Phone?.message}</p>
 
 
                     {/*service required*/}
                     <label className={`lightS`}>What do you need ?*</label>
 
                     <select
-                        defaultValue={"Landing Page"} {...register("service", {required: "Please select a service"})} >
+                        defaultValue={"Landing Page"} {...register("Service_Required", {required: "Please select a service"})} >
                         <option value="Landing Page">Landing Page</option>
 
                         <option value="Website">Website</option>
@@ -326,7 +114,7 @@ export default function Page() {
                         <option value="MVP">MVP</option>
                     </select>
 
-                    <p className={`${styles.error} boldS`}>{errors.service?.message}</p>
+                    <p className={`${styles.error} boldS`}>{errors.Service_Required?.message}</p>
 
                     {/*submit button*/}
                     <ButtonComponent version="plain" clickHandler={() => {

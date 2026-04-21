@@ -5,7 +5,7 @@ import styles from "./ButtonComponent.module.css"
 interface ButtonComponentProps {
     children: ReactNode;
     className?: string;
-    version: "cta" | "plain"
+    version: "cta" | "plain" | "success" | "warning" | "danger";
     clickHandler: () => void
     isDisabled?: true | false
 }
@@ -25,10 +25,25 @@ export default function ButtonComponent({
                             clickHandler
                         }> {children} </button>
             )
+
         case "plain":
             return (
                 <button disabled={isDisabled}
                         className={`${className} ${styles.basic} ${styles.plain} boldN`}
+                        onClick={clickHandler}> {children} </button>
+            )
+
+        case "success":
+            return (
+                <button disabled={isDisabled}
+                        className={`${styles.basic} ${styles.success} ${className} boldN`}
+                        onClick={clickHandler}> {children} </button>
+            )
+
+        case "danger":
+            return (
+                <button disabled={isDisabled}
+                        className={`${className} ${styles.basic} ${styles.danger} boldN`}
                         onClick={clickHandler}> {children} </button>
             )
     }

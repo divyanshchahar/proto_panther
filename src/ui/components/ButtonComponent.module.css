@@ -14,7 +14,6 @@
 }
 
 .cta {
-
     background-color: var(--color-golden-3);
 
     color: var(--color-white-1);
@@ -24,11 +23,17 @@
 .plain {
     border: 1px solid var(--color-border);
 
-    padding: var(--dimension-1) var(--dimension-3);
-
     background-color: var(--color-foreground);
+}
 
-    cursor: pointer;
+.success {
+    background-color: var(--color-success);
 
-    width: fit-content;
+    color: var(--color-background);
+}
+
+.danger {
+    background-color: var(--color-danger);
+
+    color: var(--color-background);
 }
