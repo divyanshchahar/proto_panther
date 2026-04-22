@@ -3,6 +3,7 @@ import LinkedinIconComponent from "../../../public/icons/LinkedInIconComponent";
 import XIconComponent from "../../../public/icons/XIConComponent";
 import InstagramIconComponent from "../../../public/icons/InstagramIconComponent";
 import YoutubeIconComponent from "../../../public/icons/YoutubeIconComponent";
+import navUrls from "@/consts/navigation";
 
 import styles from "./FooterLayout.module.css"
 import Link from "next/link";
@@ -57,7 +58,7 @@ const ImageLinks = [
     {
         linkImage: <FacebookIconComponent styling={styles.imageLink}/>,
         linkText: "Facebook",
-        linkAddress: "/",
+        linkAddress: navUrls.external.facebookPage,
     },
     {
         linkImage: <InstagramIconComponent styling={styles.imageLink}/>,
@@ -72,7 +73,7 @@ const ImageLinks = [
     {
         linkImage: <LinkedinIconComponent styling={styles.imageLink}/>,
         linkText: "LinkedIn",
-        linkAddress: "/",
+        linkAddress: navUrls.external.linkedInPage,
     },
     {
         linkImage: <YoutubeIconComponent styling={styles.imageLink}/>,
