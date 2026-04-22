@@ -7,6 +7,8 @@ const navUrls = {
     },
     external: {
         landingDiscoveryCall: "https://cal.com/divyanshchahar/landing",
+        facebookPage:"https://www.facebook.com/protopanther",
+        linkedInPage:"https://www.linkedin.com/company/protopanther",
     }
 }
 
