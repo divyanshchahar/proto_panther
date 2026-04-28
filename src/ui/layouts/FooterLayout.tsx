@@ -18,7 +18,7 @@ const TextLinks1 = [
         linkAddress: "services#landing page",
     },
     {
-        linkText: "Protrotypes",
+        linkText: "Prototypes",
         linkAddress: "services#prototype",
     },
     {
