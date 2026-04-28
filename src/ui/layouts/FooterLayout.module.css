@@ -22,7 +22,7 @@
 
 .linksContainer {
     display: flex;
-    gap: var(--d5);
+    gap: var(--dimension-5);
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-evenly;
