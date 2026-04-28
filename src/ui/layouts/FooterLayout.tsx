@@ -126,20 +126,6 @@ function ImageLinkContainer({categoryText, imageLinks}: { categoryText: string, 
 export default function FooterLayout() {
     return (
         <div className={`${styles.container} regularN colorScheme4`}>
-
-            {/*<div className={styles.subscriptionContainer}>*/}
-            {/*    <Image src={logoBranding} width={24} height={24} alt="brand logo"/>*/}
-
-            {/*    <p>*/}
-            {/*        Get updates on new services and industry insights delivered to your inbox.*/}
-            {/*    </p>*/}
-
-            {/*    <ButtonComponent version="plain">Subscribe</ButtonComponent>*/}
-
-            {/*    <p className={`regularS`}>You agree to our Privacy Policy and consent to receive communications from*/}
-            {/*        Proto Panther.</p>*/}
-            {/*</div>*/}
-
             <div className={styles.linksContainer}>
                 <TextLinkContainer categoryText={"Services"} links={TextLinks1}/>
                 <TextLinkContainer categoryText={"Company"} links={TextLinks2}/>
